@@ -3,9 +3,10 @@ package com.appiumapp;
 import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 
-// import org.junit.Test;
-import org.testng.annotations.Test;
+import org.junit.Test;
+// import org.testng.annotations.Test;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
@@ -33,7 +34,8 @@ public class AppTest
 
         dc.setCapability("platformName", "Android");
         dc.setCapability("appium:automationName", "uiautomator2");
-        dc.setCapability("appium:app", "apps/globills.apk");
+        dc.setCapability("appium:app", System.getProperty("user.dir") + "/apps/globills.apk");
+
         // dc.setCapability("platformName", "Android");
 
         driver = new AndroidDriver(new URL(appiumServerUrl), dc);
